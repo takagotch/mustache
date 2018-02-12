@@ -1,0 +1,25 @@
+<script src="js/external/mustache.js"></script>
+
+<script type="text/x-mustache-template" id="library-template">
+<ul>
+  {{#library}}
+  <li>
+    <em>{{name}}</em> by {{author}}
+  </li>
+  {{/library}}
+</ul>
+</script>
+
+
+template: Mustache.compile($("#library-template").html()),
+
+render: function(){
+  var self = this;
+  var output = self.template({'library': self.collection.toJSON()});
+  return self;
+}
+
+
+
+
+
